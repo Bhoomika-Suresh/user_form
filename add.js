@@ -12,20 +12,20 @@ const app = express();
 const port = 3000;
 
 //PostgreSQL configuration
-// const db = new pg.Client({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'world',
-//     password: 'Rohan@25',
-//     port: 5432
-// });
+const db = new pg.Client({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'world',
+    password: 'Rohan@25',
+    port: 5432
+});
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-//db.connect();
+db.connect();
 
 // Routes
 app.get('/', (req, res) => {
@@ -41,10 +41,10 @@ app.post('/submit', async (req, res) => {
     console.log(mobile);
 
      try {
-        // await db.query(
-        //     "INSERT INTO user_form (name, age, email, mobile) VALUES ($1, $2, $3, $4)",
-        //     [username, age, email, mobile]
-        // );
+        await db.query(
+            "INSERT INTO user_form (name, age, email, mobile) VALUES ($1, $2, $3, $4)",
+            [username, age, email, mobile]
+        );
         console.log("User inserted successfully ✅");
         res.send("Form submitted successfully!");
     } catch (err) {
