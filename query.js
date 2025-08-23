@@ -22,3 +22,24 @@
 //     res.status(500).send('Database error');
 //   }
 // });
+
+// Search route
+// app.post('/search', async (req, res) => {
+//     const { name } = req.body;
+
+//     try {
+//         const result = await db.query(
+//             "SELECT * FROM user_form WHERE name ILIKE $1",
+//             [`%${name}%`]
+//         );
+
+//         if (result.rows.length > 0) {
+//             res.render('searchResult', { users: result.rows });
+//         } else {
+//             res.send("No user found with that name");
+//         }
+//     } catch (err) {
+//         console.error("Error searching user", err.stack);
+//         res.status(500).send("Error retrieving data");
+//     }
+// });
