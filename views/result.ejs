@@ -1,13 +1,16 @@
 <%- include('partials/header') %>
 
 <section>
-  <h2>Submitted Data</h2>
-  <ul>
-    <li>Username: <%= user.username %></li>
-    <li>Age: <%= user.age %></li>
-    <li>Email: <%= user.email %></li>
-    <li>Mobile: <%= user.mobile %></li>
-  </ul>
+  <% if (user) { %>
+    <h2>Result for "<%= name %>"</h2>
+    <ul>
+      <li><strong>Age:</strong> <%= user.age %></li>
+      <li><strong>Email:</strong> <%= user.email %></li>
+      <li><strong>Mobile:</strong> <%= user.mobile %></li>
+    </ul>
+  <% } else { %>
+    <h2>No user found with name "<%= name %>"</h2>
+  <% } %>
 </section>
 
 <%- include('partials/footer') %>

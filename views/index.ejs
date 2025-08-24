@@ -1,5 +1,11 @@
 <%- include('partials/header') %>
 
-<%- include('partials/userForm') %>
+<section>
+  <form action="/search" method="POST">
+    <label for="name">Enter Name:</label>
+    <input type="text" id="name" name="name" required>
+    <button type="submit">Search</button>
+  </form>
+</section>
 
 <%- include('partials/footer') %>
